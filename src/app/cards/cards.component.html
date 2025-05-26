@@ -1,8 +1,20 @@
-<div class="card" style="width: 18rem;">
-    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagen del Card">
-    <div class="card-body">
-      <h5 class="card-title">Título del Card</h5>
-      <p class="card-text">Este es un ejemplo de texto para el cuerpo del card. Puedes poner una descripción breve aquí.</p>
-      <a href="#" class="btn btn-primary">Ver más</a>
+<div class="container mt-4">
+    <h2>Nuestras Tarjetas Dinámicas</h2>
+    <div class="row">
+      @for (card of cards; track card.title) {
+        <div class="col-md-4 mb-4"> <div class="card" style="width: 18rem;">
+            <img [src]="card.imageUrl" class="card-img-top" [alt]="'Imagen de ' + card.title">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.description }}</p>
+              <a [href]="card.buttonLink" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12">
+          <p class="alert alert-info">No hay tarjetas para mostrar en este momento.</p>
+        </div>
+      }
     </div>
   </div>
