@@ -1,1 +1,55 @@
 <p>perfiles works!</p>,
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg profile-card">
+          <div class="card-body text-center p-4">
+            <img
+              [src]="profile.imageUrl"
+              alt="Imagen de Perfil"
+              class="profile-img rounded-circle mb-3 border border-3 border-light shadow-sm"
+            >
+  
+            <h2 class="card-title mb-1">{{ profile.name }}</h2>
+            <p class="text-muted mb-4">{{ profile.role }}</p>
+  
+            <p class="card-text lead px-4">{{ profile.bio }}</p>
+  
+            <hr class="my-4">
+  
+            <ul class="list-group list-group-flush text-start">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="bi bi-envelope-fill me-2 text-primary"></i> Correo Electrónico:
+                <span>{{ profile.email }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="bi bi-phone-fill me-2 text-primary"></i> Teléfono:
+                <span>{{ profile.phone }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="bi bi-geo-alt-fill me-2 text-primary"></i> Ubicación:
+                <span>{{ profile.location }}</span>
+              </li>
+              @if (profile.socialMedia && profile.socialMedia.linkedin) {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <i class="bi bi-linkedin me-2 text-primary"></i> LinkedIn:
+                  <a [href]="profile.socialMedia.linkedin" target="_blank" class="text-decoration-none">Ver Perfil</a>
+                </li>
+              }
+              @if (profile.socialMedia && profile.socialMedia.github) {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <i class="bi bi-github me-2 text-primary"></i> GitHub:
+                  <a [href]="profile.socialMedia.github" target="_blank" class="text-decoration-none">Ver Perfil</a>
+                </li>
+              }
+            </ul>
+  
+            <div class="mt-4">
+              <button class="btn btn-primary me-2">Editar Perfil</button>
+              <button class="btn btn-outline-secondary">Enviar Mensaje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
