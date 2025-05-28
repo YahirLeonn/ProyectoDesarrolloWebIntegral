@@ -12,4 +12,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UsersComponent { }
+export class UsersComponent { 
+  usuarios = [
+    {
+      nombre: "José Domínguez",
+      edad: 24,
+      telefono: "9514229010",
+    },
+    {
+      nombre: "Uziel Borjas",
+      edad: 22,
+      telefono: "9511234576"
+    }
+  ]
+}
